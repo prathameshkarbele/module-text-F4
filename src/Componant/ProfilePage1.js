@@ -15,7 +15,7 @@ const ProfilePage1 = () => {
         const data = await response.json();
         dispatch({ type: 'LOGIN_SUCCESS', payload: data });
       } catch (error) {
-        // console.log(error);
+        console.log(error);
       }
     };
 
