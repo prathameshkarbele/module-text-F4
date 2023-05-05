@@ -7,6 +7,23 @@ const ProfilePage1 = () => {
   const user = useSelector((state) => state.user);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const response = await fetch(`https://dummyjson.com/users/${user.id}`);
+  //       const data = await response.json();
+  //       dispatch({ type: 'LOGIN_SUCCESS', payload: data });
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log(error);
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   if (user) {
+  //     fetchUser();
+  //   }
+  // }, [user, dispatch]);
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -19,11 +36,9 @@ const ProfilePage1 = () => {
         setLoading(false);
       }
     };
-
-    if (user) {
-      fetchUser();
-    }
-  }, [user, dispatch]);
+  
+    fetchUser();
+  }, []);
 
   return (
     <div className='profile'>
